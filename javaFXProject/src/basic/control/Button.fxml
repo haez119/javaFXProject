@@ -8,7 +8,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1"
-   prefHeight="150.0" prefWidth="420.0">
+   prefHeight="150.0" prefWidth="420.0"
+   fx:controller="basic.control.ButtonController"
+   >
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
    </padding>
@@ -18,8 +20,8 @@
             <VBox prefHeight="100.0" prefWidth="100.0" spacing="20.0"
                alignment="CENTER_LEFT">
                <children>
-                  <CheckBox fx:id="chk1" text="안경" />
-                  <CheckBox fx:id="chk2" text="모자" />
+                  <CheckBox fx:id="chk1" text="안경" onAction="#handlerChkAction" /> 
+                  <CheckBox fx:id="chk2" text="모자" onAction="#handlerChkAction" />
                </children>
             </VBox>
 
@@ -31,18 +33,14 @@
             </ImageView>
 
             <Separator orientation="VERTICAL" prefHeight="100.0" />
-            <VBox prefHeight="100" prefWidth="150" spacing="20.0"
-               alignment="CENTER_LEFT">
+            <VBox prefHeight="100" prefWidth="150" spacing="20.0" alignment="CENTER_LEFT">
                <fx:define>
                   <ToggleGroup fx:id="group" />
                </fx:define>
                <children>
-                  <RadioButton fx:id="rad1" text="BubbleChart"
-                     userData="BubbleChart" toggleGroup="$group" />
-                  <RadioButton fx:id="rad2" text="BarChart"
-                     userData="BarChart" toggleGroup="$group" selected="true" />
-                  <RadioButton fx:id="rad3" text="AreaChart"
-                     userData="AreaChart" toggleGroup="$group" />
+                  <RadioButton fx:id="rad1" text="BubbleChart" userData="BubbleChart" toggleGroup="$group" />
+                  <RadioButton fx:id="rad2" text="BarChart" userData="BarChart" toggleGroup="$group" selected="true" />
+                  <RadioButton fx:id="rad3" text="AreaChart" userData="AreaChart" toggleGroup="$group" />
                </children>
             </VBox>
 
