@@ -12,7 +12,7 @@ public class ViewExample extends Application {
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-AnchorPane a = FXMLLoader.load(getClass().getResource("View.fxml"));
+		AnchorPane a = FXMLLoader.load(getClass().getResource("View.fxml"));
 		
 		Scene scene = new Scene(a);
 		primaryStage.setScene(scene);
