@@ -65,6 +65,17 @@ public class BoardController implements Initializable {
 				txtContent.setText(n.getContent());
 			}
 		});
+		
+		btnNext.setOnAction(new EventHandler<ActionEvent>() {
+
+			@Override
+			public void handle(ActionEvent a) {
+				
+			}
+		});
+		
+		
+		
 	}
 
 	public ObservableList<Board> getBoardList() {

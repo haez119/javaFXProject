@@ -45,32 +45,24 @@ public class VBoxExample extends Application {
 		// 이벤트 핸들러를 해당 컨트롤에 등록하기
 		// 다음버튼 누르면 fruit1 -> 2->3 ... 바뀌게 하기
 		
-	
 		btnNext.setOnAction(new EventHandler<ActionEvent>() {
 			int loc = 2;
-
+			
 			@Override
 			public void handle(ActionEvent ac) {
 				if (loc == 9)
 					loc = 1;
 				iv.setImage(new Image("/basic_images/fruit" + loc++ + ".jpg"));
+			}
+		});
+		
+		btnPrev.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent ac) {
+				iv.getImage();
 
 			}
 		});
-
-		// 다시하기
-//		btnPrev.setOnAction(new EventHandler<ActionEvent>() {
-//			int loc1 = 1;
-//			
-//			@Override
-//			public void handle(ActionEvent ac) {
-//
-//				if (loc == 0)
-//					loc= loc1 ;
-//				iv.setImage(new Image("/basic_images/fruit" + loc-- + ".jpg"));
-//
-//			}
-//		});
 
 		root.getChildren().add(iv); // children 테그 밑에 들어가는 컨트롤들 넣기
 		root.getChildren().add(hbox);
