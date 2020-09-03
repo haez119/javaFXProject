@@ -20,6 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TableView.TableViewFocusModel;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -70,6 +71,9 @@ public class BoardController implements Initializable {
 
 			@Override
 			public void handle(ActionEvent a) {
+				int aa = boardView.getSelectionModel().getFocusedIndex();
+				aa++;
+				
 				
 			}
 		});
