@@ -6,12 +6,14 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Student {
 	
+	private SimpleStringProperty id;
 	private SimpleStringProperty name;
 	private SimpleIntegerProperty korean;
 	private SimpleIntegerProperty math;
 	private SimpleIntegerProperty english;
 	
-	public Student(String name, int korean, int math, int english) {
+	public Student(String id, String name, int korean, int math, int english) {
+		this.id = new SimpleStringProperty(id);
 		this.name = new SimpleStringProperty(name);
 		this.korean = new SimpleIntegerProperty(korean);
 		this.math = new SimpleIntegerProperty(math);
@@ -24,7 +26,12 @@ public class Student {
 	public void setName(String name) {
 		this.name.set(name);
 	}
-	
+	public String getId() {
+		return this.id.get();
+	}
+	public void setId(String id) {
+		this.id.set(id);
+	}
 	public int getKorean() {
 		return this.korean.get();
 	}

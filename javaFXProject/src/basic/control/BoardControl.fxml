@@ -27,7 +27,7 @@
       <TextArea id = "area" fx:id="txtContent" layoutX="235.0" layoutY="163.0" prefHeight="131.0" prefWidth="247.0" />
       <Button fx:id="btnPrev" layoutX="173.0" layoutY="307.0" mnemonicParsing="false" text="Prev" />
       <Button fx:id="btnNext" layoutX="254.0" layoutY="307.0" mnemonicParsing="false" text="Next" />
-      <Button id = "addStyle" layoutX="334.0" layoutY="307.0" text="추가" />
+      <Button id = "addStyle" layoutX="334.0" layoutY="307.0" text="수정" />
       
       <Separator layoutX="215.0" layoutY="35.0" orientation="VERTICAL" prefHeight="265.0" />
    </children>

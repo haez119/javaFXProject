@@ -23,6 +23,8 @@ public class ChartController implements Initializable {
 	@FXML PieChart pieChart;
 	@FXML BarChart barChart;
 	@FXML AreaChart areaChart;
+	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		ObservableList<Data> list = FXCollections.observableArrayList(

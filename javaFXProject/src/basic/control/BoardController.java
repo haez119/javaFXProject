@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.function.Function;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -43,7 +44,6 @@ public class BoardController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 
-
 		TableColumn<Board, String> tcTitle = new TableColumn<>("제목"); // 보여지는 이름
 		tcTitle.setCellValueFactory(new PropertyValueFactory<>("title")); // 칼럼이름
 		tcTitle.setPrefWidth(80);
@@ -66,20 +66,22 @@ public class BoardController implements Initializable {
 				txtContent.setText(n.getContent());
 			}
 		});
-		
+
 		btnNext.setOnAction(new EventHandler<ActionEvent>() {
 
 			@Override
 			public void handle(ActionEvent a) {
-				int aa = boardView.getSelectionModel().getFocusedIndex();
-				aa++;
-				
-				
+				boardView.getSelectionModel().selectNext();
 			}
 		});
-		
-		
-		
+
+		btnPrev.setOnAction(new EventHandler<ActionEvent>() {
+			@Override
+			public void handle(ActionEvent event) {
+				boardView.getSelectionModel().selectPrevious();
+			}
+		});
+
 	}
 
 	public ObservableList<Board> getBoardList() {

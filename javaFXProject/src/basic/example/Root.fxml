@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="basic.example.RootController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="basic.example.RootController">
 	<center>
-		<TableView fx:id="tableView" prefWidth="420" prefHeight="200" >
+		<TableView fx:id="tableView" prefHeight="200" prefWidth="420">
 			<columns>
+				<TableColumn prefWidth="100" resizable="false" text="id" />
 				<TableColumn prefWidth="100" resizable="false" text="Name" />
 				<TableColumn prefWidth="100" resizable="false" text="Korean" />
 				<TableColumn prefWidth="100" resizable="false" text="Math" />
@@ -18,12 +22,13 @@
 		</TableView>
 	</center>
 	<bottom>
-		<HBox prefHeight="50" alignment="CENTER">
+		<HBox alignment="CENTER" prefHeight="50">
 			<children>
+				<Button fx:id="btnSelect" text="select" />
 				<Button fx:id="btnAdd" text="Add" />
+            	<Button fx:id="btnDelete" text="delete" />
 				<Button fx:id="btnBarChart" text="BarChart" />
 			</children>
 		</HBox>
 	</bottom>
 </BorderPane>
-
