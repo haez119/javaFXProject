@@ -284,7 +284,7 @@ public class RootController implements Initializable {
 
 					// 위에 선언한 list에 방금 저장한 값을 넣음
 					
-					fo: for (Student stu : list) {
+					for (Student stu : list) {
 						if (stu.getId().equals(txtId.getText())) {
 							Stage stage = new Stage(StageStyle.DECORATED.UTILITY);
 							stage.initModality(Modality.WINDOW_MODAL);
@@ -309,11 +309,11 @@ public class RootController implements Initializable {
 							Scene scene = new Scene(ap);
 							stage.setScene(scene);
 							stage.show();
-							break fo;
+							break;
 						} else {
 							list.add(student);
 							dao.addDB(student);
-							break fo;
+							break;
 						}
 					}
 					txtId.clear();
