@@ -12,6 +12,8 @@ public class Student {
 	private SimpleIntegerProperty math;
 	private SimpleIntegerProperty english;
 	
+	public Student() {}
+	
 	public Student(String id, String name, int korean, int math, int english) {
 		this.id = new SimpleStringProperty(id);
 		this.name = new SimpleStringProperty(name);
