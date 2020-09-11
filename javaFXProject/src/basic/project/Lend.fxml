@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="550.0" prefWidth="352.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+      <Label layoutX="23.0" layoutY="24.0" styleClass="lblClass" text="------------------ 회원정보 ------------------" />
+      
+      <Label layoutX="45.0" layoutY="72.0" styleClass="lblClass" text="아이디" />
+      <TextField fx:id="txtId" layoutX="129.0" layoutY="68.0" prefHeight="23.0" prefWidth="170.0"  promptText="대출/반납시 입력" />
+      
+      <Label layoutX="45.0" layoutY="108.0" styleClass="lblClass" text="이름" />
+      <TextField fx:id="txtName" layoutX="129.0" layoutY="104.0" prefHeight="23.0" prefWidth="170.0" promptText="대출시에만 입력" />
+      
+      <Label layoutX="45.0" layoutY="140.0" styleClass="lblClass" text="전화번호" />
+      <TextField fx:id="txtNo" layoutX="129.0" layoutY="136.0" prefHeight="23.0" prefWidth="170.0" promptText="대출시에만 입력" />
+      
+      <Button fx:id="btnReturn" layoutX="109.0" layoutY="490.0" mnemonicParsing="false" text="반납" />
+      <Button fx:id="btnRent" layoutX="54.0" layoutY="490.0" mnemonicParsing="false" text="대출" />
+      <Button fx:id="btnCancle" layoutX="279.0" layoutY="490.0" mnemonicParsing="false" text="취소" />
+      
+      <Label layoutX="23.0" layoutY="206.0" styleClass="lblClass" text="------------------ 도서정보 ------------------" />
+      
+      <Label layoutX="56.0" layoutY="250.0" styleClass="lblClass" text="도서명" />
+      <TextField fx:id="txtBName" layoutX="140.0" layoutY="246.0" prefHeight="23.0" prefWidth="170.0" />
+      
+      <Label layoutX="56.0" layoutY="285.0" styleClass="lblClass" text="저자명" />
+      <TextField fx:id="txtBWrite" layoutX="140.0" layoutY="281.0" prefHeight="23.0" prefWidth="170.0" />
+      
+      <Label layoutX="56.0" layoutY="320.0" styleClass="lblClass" text="출판사" />
+      <TextField fx:id="txtBCompany" layoutX="140.0" layoutY="316.0" prefHeight="23.0" prefWidth="170.0" />
+      
+      <Label layoutX="56.0" layoutY="383.0" styleClass="lblClass" text="대출 일자" />
+      <TextField fx:id="txtLendDate" layoutX="139.0" layoutY="379.0" prefHeight="23.0" prefWidth="170.0" />
+      
+      <Label layoutX="55.0" layoutY="425.0" styleClass="lblClass" text="반납 일자" />
+      <TextField fx:id="txtReturnDate" layoutX="139.0" layoutY="421.0" prefHeight="23.0" prefWidth="170.0" />
+      
+   </children>
+	
+
+</AnchorPane>

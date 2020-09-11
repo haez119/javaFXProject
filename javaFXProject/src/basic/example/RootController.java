@@ -88,7 +88,6 @@ public class RootController implements Initializable {
 		});
 		// 차트 버튼
 		btnBarChart.setOnAction(e -> {
-
 			handlebtnBarChartAction();
 		});
 
@@ -277,12 +276,10 @@ public class RootController implements Initializable {
 					TextField txtMath = (TextField) parent.lookup("#txtMath");
 					TextField txtEnglish = (TextField) parent.lookup("#txtEnglish");
 
-					// Student 생성자의 매개값으로 입력
+					// 위에 선언한 list에 방금 저장한 값을 넣음
 					Student student = new Student(txtId.getText(), txtName.getText(),
 							Integer.parseInt(txtKorean.getText()), Integer.parseInt(txtMath.getText()),
 							Integer.parseInt(txtEnglish.getText()));
-
-					// 위에 선언한 list에 방금 저장한 값을 넣음
 					
 					for (Student stu : list) {
 						if (stu.getId().equals(txtId.getText())) {
@@ -310,7 +307,9 @@ public class RootController implements Initializable {
 							stage.setScene(scene);
 							stage.show();
 							break;
+							
 						} else {
+
 							list.add(student);
 							dao.addDB(student);
 							break;

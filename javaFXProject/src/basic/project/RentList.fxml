@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="321.0" prefWidth="449.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="basic.project.RentListController">
+   <children>
+      <TableView fx:id="tableView" layoutX="21.0" layoutY="61.0" prefHeight="200.0" prefWidth="401.0">
+        <columns>
+          <TableColumn fx:id="peoId" prefWidth="75.0" text="회원 ID" />
+          <TableColumn fx:id="bookName" prefWidth="75.0" text="도서명" />
+          <TableColumn fx:id="bookRent" prefWidth="120.0" text="대출 일자" />
+          <TableColumn fx:id="bookReturn" prefWidth="120.0" text="반납 일자" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnOk" layoutX="205.0" layoutY="276.0" mnemonicParsing="false" text="확인" />
+      <Label layoutX="165.0" layoutY="25.0" text="--- 대출 리스트 ---" />
+   </children>
+</AnchorPane>

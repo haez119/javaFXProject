@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="586.0" prefWidth="653.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="basic.project.BookListController" >
+
+<children>
+      <TableView fx:id="tableView" layoutX="37.0" layoutY="58.0" prefHeight="255.0" prefWidth="396.0">
+        <columns>
+          <TableColumn fx:id="bName" prefWidth="75.0" text="도서명" />
+          <TableColumn fx:id="bWrite" prefWidth="75.0" text="저자명" />
+          <TableColumn fx:id="bCompany" prefWidth="88.0" text="출판사" />
+          <TableColumn fx:id="bPrice" prefWidth="84.0" text="가격" />
+          <TableColumn fx:id="bYN" prefWidth="67.0" text="대출여부" />
+        </columns>
+      </TableView>
+      <Label layoutX="209.0" layoutY="25.0" text=" 도서목록" />
+      <Label layoutX="21.0" layoutY="374.0" prefHeight="15.0" prefWidth="632.0" styleClass="lblClass" text="--------------------------- 도서등록 --------------------------- " />
+      
+      
+      <Label layoutX="39.0" layoutY="417.0" styleClass="lblClass" text="도서명" />
+      <Label layoutX="39.0" layoutY="453.0" styleClass="lblClass" text="저자명" />
+      <Label layoutX="39.0" layoutY="485.0" styleClass="lblClass" text="출판사" />
+      <Label layoutX="39.0" layoutY="517.0" styleClass="lblClass" text="가격" />
+      
+      <TextField fx:id="txtBN" layoutX="123.0" layoutY="413.0" prefHeight="23.0" prefWidth="253.0" />
+      <TextField fx:id="txtBW" layoutX="123.0" layoutY="449.0" prefHeight="23.0" prefWidth="253.0" />
+      <TextField fx:id="txtBC" layoutX="123.0" layoutY="481.0" prefHeight="23.0" prefWidth="253.0" />
+      <TextField fx:id="txtBP" layoutX="123.0" layoutY="513.0" prefHeight="23.0" prefWidth="253.0" />
+      
+      <Button fx:id="btnAdd" layoutX="405.0" layoutY="415.0" mnemonicParsing="false" text="등록" />
+      <Button fx:id="btnClose" layoutX="588.0" layoutY="512.0" mnemonicParsing="false" text="닫기" />
+      <Button fx:id="btnDel" layoutX="405.0" layoutY="450.0" mnemonicParsing="false" text="삭제" />
+      
+      <Button fx:id="btnPeoAdd" layoutX="564.0" layoutY="412.0" mnemonicParsing="false" text="회원등록" />
+      <Button fx:id="btnRent" layoutX="564.0" layoutY="441.0" mnemonicParsing="false" text="대출정보" />
+      
+      <ImageView fx:id="imageView" fitHeight="255.0" fitWidth="183.0" layoutX="456.0" layoutY="58.0" pickOnBounds="true" preserveRatio="false" />
+      <Button fx:id="btnPrev" layoutX="178.0" layoutY="323.0" mnemonicParsing="false" text="Prev" />
+      <Button fx:id="btnNext" layoutX="250.0" layoutY="323.0" mnemonicParsing="false" text="Next" />
+      
+      
+   </children>
+	
+
+
+</AnchorPane>

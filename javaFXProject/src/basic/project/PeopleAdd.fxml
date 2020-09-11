@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="550.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="basic.project.PeopleController">
+
+	<children>
+      <TableView fx:id="boardView" layoutX="40.0" layoutY="56.0" prefHeight="255.0" prefWidth="270.0">
+        <columns>
+          <TableColumn fx:id="peoId" prefWidth="75.0" text="회원 ID" />
+          <TableColumn fx:id="peoName" prefWidth="75.0" text="회원 이름" />
+          <TableColumn fx:id="peoNo" prefWidth="110.0" text="회원 전화번호" />
+        </columns>
+      </TableView>
+      <Label layoutX="151.0" layoutY="28.0" text="회원목록" />
+      <Label layoutX="23.0" layoutY="330.0" styleClass="lblClass" text="------------------ 회원등록 ------------------" />
+      <Label layoutX="45.0" layoutY="372.0" styleClass="lblClass" text="아이디" />
+      <Label layoutX="45.0" layoutY="408.0" styleClass="lblClass" text="이름" />
+      <Label layoutX="45.0" layoutY="440.0" styleClass="lblClass" text="전화번호" />
+      
+      <TextField fx:id="txtId" layoutX="129.0" layoutY="368.0" prefHeight="23.0" prefWidth="170.0" />
+      <TextField fx:id="txtName" layoutX="129.0" layoutY="404.0" prefHeight="23.0" prefWidth="170.0" />
+      <TextField fx:id="txtNo" layoutX="129.0" layoutY="436.0" prefHeight="23.0" prefWidth="170.0" />
+      
+      <Button fx:id="btnAdd" layoutX="225.0" layoutY="478.0" mnemonicParsing="false" text="등록" />
+      <Button fx:id="btnClose" layoutX="279.0" layoutY="478.0" mnemonicParsing="false" text="닫기" />
+      <Button fx:id="btnDel" layoutX="29.0" layoutY="478.0" mnemonicParsing="false" text="삭제" />
+   </children>
+	
+</AnchorPane>

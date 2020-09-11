@@ -18,9 +18,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class StudentDAO {
-
+	
+	Connection conn = ConnectionDB.getDB();
+	
 	public void deleteDB(String id) {
-		Connection conn = ConnectionDB.getDB();
+		
 		String sql = "delete from chart where id = ?";
 
 		try {
@@ -34,7 +36,6 @@ public class StudentDAO {
 	}
 
 	public void modfiyDB(Student st) {
-		Connection conn = ConnectionDB.getDB();
 		String sql = "update chart set name = ? , korean = ? , math = ? , english = ?  where id = ? ";
 
 		try {
@@ -53,7 +54,6 @@ public class StudentDAO {
 
 	public void addDB(Student st) {
 
-		Connection conn = ConnectionDB.getDB();
 		String sql = "insert into chart values(? , ? , ? , ? , ? )";
 		ObservableList<Student> list;
 
@@ -78,7 +78,7 @@ public class StudentDAO {
 	
 	
 	public ObservableList<Student> selectDB() {
-		Connection conn = ConnectionDB.getDB();
+		
 		String sql = "select * from chart";
 		ObservableList<Student> list = FXCollections.observableArrayList();
 		
@@ -97,9 +97,4 @@ public class StudentDAO {
 		}
 		return list;
 	}
-	
-	
-	
-	
-
 }
