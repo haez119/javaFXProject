@@ -91,7 +91,9 @@ public class BookListController implements Initializable {
 				
 				if (event.getClickCount() == 2) {
 					handleDoubleClickAction(name, tableView.getSelectionModel().getSelectedItem().isYesNo());
+					
 				}
+				
 			}
 
 		});
@@ -149,6 +151,7 @@ public class BookListController implements Initializable {
 
 		btnRent.setOnAction(new EventHandler<ActionEvent>() {
 
+
 			@Override
 			public void handle(ActionEvent event) {
 
@@ -168,9 +171,14 @@ public class BookListController implements Initializable {
 				}
 
 			}
+		
 		});
-
+		
+		
+		
+		
 	}
+	
 
 	public void handleDoubleClickAction(String name, boolean ys) {
 
@@ -314,12 +322,15 @@ public class BookListController implements Initializable {
 							showPopup("회원 정보가 일치하지 않습니다.");
 						}
 					}
+					
 				}
+				
 			});
 
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 	}
 	
 	public void showPopup(String msg) {
