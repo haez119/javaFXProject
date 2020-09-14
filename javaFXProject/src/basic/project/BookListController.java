@@ -2,10 +2,10 @@ package basic.project;
 
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
+
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
+
+
 import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
@@ -16,7 +16,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,8 +46,8 @@ public class BookListController implements Initializable {
 	@FXML
 	TextField txtBN, txtBW, txtBC, txtBP;
 	@FXML
-	Button btnAdd, btnClose, btnPeoAdd, btnDel, btnRent, btnPrev, btnNext;
-	@FXML ImageView imageView;
+	Button btnAdd, btnClose, btnPeoAdd, btnDel, btnRent, btnNext, btnPrev;
+	@FXML ImageView imageView, imageAdd;
 
 	BookDAO dao = new BookDAO();
 
@@ -76,41 +75,62 @@ public class BookListController implements Initializable {
 
 			@Override
 			public void handle(MouseEvent event) {
-				
+				String name = null;
 				// 이미지 넣기
-				String name = tableView.getSelectionModel().getSelectedItem().getBName();
-				imageView.setImage(new Image("basic_images/" + name + ".png"));
+				try {
+					name = tableView.getSelectionModel().getSelectedItem().getBName();
+					
+				} catch(NullPointerException e) {
+					name = null;
+				}
 				
-//				tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Book>() {
-//
-//					@Override
-//					public void changed(ObservableValue<? extends Book> arg0, Book oldV, Book newV) {
-//						imageView.setImage(new Image("basic_images/" + newV.getBName() + ".png"));
-//					}
-//				});
+				tableView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Book>() {
+					
+					@Override
+					public void changed(ObservableValue<? extends Book> observable, Book oldValue, Book newValue) {
+						if(newValue == null) {
+							newValue = oldValue;
+						} 
+						try {
+							imageView.setImage(new Image("basic_images/" + newValue.getBName() + ".png"));
+							
+						} catch(IllegalArgumentException e) {
+							imageView.setImage(new Image("basic_images/no.png"));
+						}
+						
+						
+					}
+				});
 				
 				if (event.getClickCount() == 2) {
 					handleDoubleClickAction(name, tableView.getSelectionModel().getSelectedItem().isYesNo());
-					
 				}
 				
 			}
 
 		});
 		
+
 		btnNext.setOnAction(a -> tableView.getSelectionModel().selectNext());
 		btnPrev.setOnAction(a -> tableView.getSelectionModel().selectPrevious());
 
 		btnAdd.setOnAction((e) -> {
-			Book book = new Book(txtBN.getText(), txtBW.getText(), txtBC.getText(), Integer.parseInt(txtBP.getText()),
-					true);
-			list.add(book);
-			dao.addDB(book);
-			tableView.setItems(dao.selectDB());
-			txtBN.clear();
-			txtBW.clear();
-			txtBC.clear();
-			txtBP.clear();
+			
+			if (txtBN.getText() == null || txtBN.getText().equals("")) {
+				showPopup("도서명을 입력하세요");
+			} else if(txtBW.getText() == null || txtBW.getText().equals("")) {
+				showPopup("저자명을 입력하세요");
+			} else if(txtBC.getText() == null || txtBC.getText().equals("")) {
+				showPopup("출판사를 입력하세요");
+			} else if (txtBP.getText() == null || txtBP.getText().equals("")) {
+				showPopup("가격을 입력하세요");
+			} else {
+				Book book = new Book(txtBN.getText(), txtBW.getText(), txtBC.getText(), Integer.parseInt(txtBP.getText()), true );
+				list.add(book);
+				dao.addDB(book);
+				tableView.setItems(dao.selectDB());
+				txtBN.clear(); txtBW.clear(); txtBC.clear(); txtBP.clear();
+			}
 		});
 
 		btnClose.setOnAction((e) -> Platform.exit());
@@ -205,10 +225,10 @@ public class BookListController implements Initializable {
 			TextField txtLendDate = (TextField) parent.lookup("#txtLendDate");
 			TextField txtReturnDate = (TextField) parent.lookup("#txtReturnDate");
 
-			Date now = new Date();
+			Date now = new Date(); // 오늘날짜
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-			txtLendDate.setText(sdf.format(now));
+			txtLendDate.setText(sdf.format(now)); 
 			txtLendDate.setEditable(false);
 			
 			Calendar cal = Calendar.getInstance();
@@ -236,12 +256,17 @@ public class BookListController implements Initializable {
 			}
 
 			Button btnReturn = (Button) parent.lookup("#btnReturn");
+			btnReturn.setDisable(ys); // true가 비활성화
 			Button btnRent = (Button) parent.lookup("#btnRent");
+			btnRent.setDisable(!ys); // false 활성화
 			Button btnCancle = (Button) parent.lookup("#btnCancle");
 
 			btnCancle.setOnAction(a -> stage.close());
 
 			BookRentDAO brDAO = new BookRentDAO();
+			
+				
+
 			
 			// 대출버튼 누르면
 			btnRent.setOnAction(new EventHandler<ActionEvent>() {
@@ -255,6 +280,7 @@ public class BookListController implements Initializable {
 					if(ys) {
 						
 						boolean bb = true;
+						
 						for (People po : pc.list) {
 							if (po.getId().equals(txtId.getText()) && 
 								po.getName().equals(txtName.getText())&& 
@@ -264,6 +290,7 @@ public class BookListController implements Initializable {
 								break;
 							} else {
 								bb=false;
+								break;
 							}
 						}
 						
@@ -281,9 +308,7 @@ public class BookListController implements Initializable {
 							showPopup("등록된 회원이 없습니다.");
 						}
 
-					} else {
-						showPopup("대출된 책입니다.");
-					}
+					} 
 				}
 
 			});
@@ -293,10 +318,8 @@ public class BookListController implements Initializable {
 				@Override
 				public void handle(ActionEvent event) {
 
-					if(ys) {
-						showPopup("반납된 책입니다.");
-					} else {
-						
+					if(!ys) {
+
 						BookRentDAO brDAO = new BookRentDAO();
 						ObservableList<BookRent> list = brDAO.selectDB();
 
@@ -318,8 +341,8 @@ public class BookListController implements Initializable {
 							dao.modfiyDB(txtBName.getText(), true);
 							tableView.setItems(dao.selectDB());
 							stage.close();
-						}else {
-							showPopup("회원 정보가 일치하지 않습니다.");
+						} else {
+							showPopup("아이디가 일치하지 않습니다.");
 						}
 					}
 					
@@ -347,12 +370,16 @@ public class BookListController implements Initializable {
 		hbox.getChildren().addAll(iv, label);
 		Popup pop = new Popup(); // 스테이지에 있는 (컨트롤이 있어야 해)
 		pop.getContent().add(hbox); 
+		
+		//pop.getOnAutoHide();  // 다른 창 선택시 자동 닫힘?
+		
 		hbox.setOnMouseClicked (event -> pop.hide() ); // hbox 선택하면 pop 사라짐
 		pop.show(btnAdd.getScene().getWindow()); 
 		
 		// main아니라서 윈도우 못가져옴 > 가져오는 법 아무 컨트롤의 씬의 윈도우를 가져와라
 
 	}
+	
 
 
 }

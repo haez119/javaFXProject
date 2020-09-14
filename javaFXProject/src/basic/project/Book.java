@@ -13,6 +13,7 @@ public class Book {
 	private boolean yesNo;
 	
 	
+	
 	public boolean isYesNo() {
 		return yesNo;
 	}

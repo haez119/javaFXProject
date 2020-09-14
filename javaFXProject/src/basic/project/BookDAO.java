@@ -50,7 +50,7 @@ public class BookDAO {
 	
 	public ObservableList<Book> selectDB() {
 		
-		String sql = "select * from book";
+		String sql = "select * from book order by 5";
 		ObservableList<Book> list = FXCollections.observableArrayList();
 		
 		try {
@@ -60,7 +60,7 @@ public class BookDAO {
 				Book bk = new Book(rs.getString("book_name"), 
 								   rs.getString("book_write"), 
 								   rs.getString("book_company"), 
-								   Integer.parseInt(rs.getString("book_price")),
+								   rs.getInt("book_price"),
 								   rs.getBoolean("book_lend"));  // 칼럼이름
 				list.add(bk);
 			}
